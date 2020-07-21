@@ -62,6 +62,9 @@ const TodoItem = ({ id, done, text }) => {
     <TodoItemBlock>
       <CheckCircle done={done}>{done && <MdDone />}</CheckCircle>
       <Text done={done}>{text}</Text>
+      <Remove>
+        <MdDelete />
+      </Remove>
     </TodoItemBlock>
   );
 };
