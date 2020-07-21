@@ -31,13 +31,23 @@ const TodoHeadBlock = styled.div`
 
 const TodoHead = () => {
   const todos = useTodoState();
-  console.log(todos);
   const undoneTasks = todos.filter((todo) => !todo.done);
-  console.log(undoneTasks);
+
+  const today = new Date();
+  const dateString = today.toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const dayName = today.toLocaleDateString("ko-KR", {
+    weekday: "long",
+  });
+
   return (
     <TodoHeadBlock>
-      <h1>2020년 7월 21일</h1>
-      <div className="day">화요일</div>
+      <h1>{dateString}</h1>
+      <div className="day">{dayName}</div>
       <div className="tasks-left">할일 {undoneTasks.length}개 남음</div>
     </TodoHeadBlock>
   );
